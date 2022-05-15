@@ -46,6 +46,17 @@ endif ("${isSystemDir}" STREQUAL "-1")
 set(NNG_DESCRIPTION "High-Performance Scalability Protocols NextGen")
 set(ISSUE_REPORT_MSG "Please consider opening an issue at https://github.com/nanomsg/nng")
 
+###################################################################################################
+# MacOS target (JKU 2022-05-15)
+###################################################################################################
+
+if (APPLE) 
+    set(CMAKE_OSX_DEPLOYMENT_TARGET "10.14" CACHE STRING "Minimum OS X deployment version" FORCE)
+endif ()
+
+###################################################################################################
+###################################################################################################
+
 # Determine library versions.
 file(READ "include/nng/nng.h" nng_ver_h)
 string(REGEX MATCH "NNG_MAJOR_VERSION ([0-9]*)" _ ${nng_ver_h})
